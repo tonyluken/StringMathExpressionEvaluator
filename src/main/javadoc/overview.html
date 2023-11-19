@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/html">
+    <body>
+    <h1>Getting Started</h1>
+    <p>The code snippet below shows a simple example of using StringMathExpressionEvaluator to find 
+       the value of three expressions.
+    </p>
+    <pre><code>
+    StringMathExpressionEvaluator smee = new StringMathExpressionEvaluator();
+
+    String[] expressions = {"2*(3+7)", "3.2*sin(0.56)", "atan2(-1, -1)"};
+    double value;
+	
+    for (expression : expressions) {
+        try {
+            value = smee.evaluate(expression);
+            System.out.println("\"" + expression + "\" evaluates to " + value);
+        }
+        catch (InvalidMathExpressionException ex) {
+            System.out.println("\"" + expression + "\" failed to evaluate due to: " + ex.getMessage());
+        }
+    }
+    </code></pre>
+
+    <p>Executing this code results in the following output:</p>
+    <pre><code>
+    "2*(3+7)" evaluates to 20.0
+    "3.2*sin(0.56)" evaluates to 1.699795833346827
+    "atan2(-1, -1)" evaluates to -2.356194490192345
+    </code></pre>
+
+	<p>See the <a href="https://github.com/tonyluken/StringMathExpressionEvaluator/wiki"
+                target="_blank"><em>StringMathExpressionEvaluator Wiki</em></a> for a complete list
+       of operators and functions that can be used in expressions.
+	</p>
+	
+	<p>By default, trig functions expect their input arguments to be in radians and the inverse trig
+	functions return their results in radians. This can be changed by calling the <a href="stringMathExpressionEvaluator/StringMathExpressionEvaluator.html#setDegreeMode()">setDegreeMode()</a> method.
+	</p>
+    </body>
+</html>
